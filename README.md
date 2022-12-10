@@ -75,6 +75,19 @@ Gere a key do projeto Laravel
 php artisan key:generate
 ```
 
+Rode as migrations and seeder
+```
+php artisan migrate --seed
+```
+
+Rode o Horizon
+```sh
+php artisan horizon
+```
 
 Acesse o projeto
-[http://localhost:8989](http://localhost:8989)
+[http://localhost:<APP_PORT>](http://localhost:<APP_PORT>)
+```
+    user: rogerio@test.com
+    password: password
+```

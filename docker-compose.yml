@@ -37,7 +37,7 @@ services:
         volumes:
             - ./.docker/mysql/dbdata:/var/lib/mysql
         ports:
-            - "${DB_FORWARD_PORT}:3306"
+            - "${DB_FORWARD_PORT}:${DB_PORT}"
         networks:
             - laravel-9
 
