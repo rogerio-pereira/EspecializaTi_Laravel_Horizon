@@ -1,6 +1,8 @@
 <?php
 
+use App\Mail\TestMail;
 use App\Jobs\ExampleJob;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,4 +26,11 @@ Route::get('/test-job', function() {
         ]);
 
     return 'ok';
+});
+
+Route::get('/test-mail', function() {
+    Mail::to('rogerio@horizon.com')
+        ->send(new TestMail());
+
+    return 'ok - sent';
 });
