@@ -59,6 +59,17 @@ services:
         networks:
             - laravel-9
 
+    #mailhog
+    mailhog:
+        image: mailhog/mailhog
+        logging:
+            driver: 'none'  #disable saving logs
+        ports:
+            - "${MAILHOG_SMTP_PORT}:1025"   #smtp server
+            - "${MAILHOG_WEB_PORT}:8025"    #web ui
+        networks:
+            - laravel-9
+
 networks:
     laravel-9:
         driver: bridge
