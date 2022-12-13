@@ -16,17 +16,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
-        User::create([
-            'name' => 'Rogerio Pereira',
-            'email' => 'rogerio@test.com',
-            'password' => bcrypt('password'),
-        ])
+        foreach(range(1,6) as $id) {
+            User::factory()->create([
+                'name' => "Test User {$id}",
+                'email' => "user{$id}@example.com",
+                'image' => storage_path("user${id}.png"),
+            ]);
+        }
     }
 }
