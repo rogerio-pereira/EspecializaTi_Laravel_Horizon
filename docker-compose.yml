@@ -44,7 +44,9 @@ services:
     # queue
     queue:
         image: especializati/laravel9-app
-        command: "php artisan queue:work"
+        command: 
+            - "php artisan queue:work"
+            - "php artisan watermark:users"
         volumes:
             - ./:/var/www
         depends_on:
