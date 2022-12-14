@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             User::factory()->create([
                 'name' => "Test User {$id}",
                 'email' => "user{$id}@example.com",
-                'image' => storage_path("user${id}.png"),
+                'image' => "users/user{$id}.png",
             ]);
         }
     }

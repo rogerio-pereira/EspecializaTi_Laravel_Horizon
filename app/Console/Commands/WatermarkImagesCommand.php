@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\User;
 use App\Services\Images\WatermarkInterface;
 use Illuminate\Console\Command;
 
@@ -22,7 +23,8 @@ class WatermarkImagesCommand extends Command
     protected $description = 'Add watermark to user image';
 
     public function __construct(
-        protected WatermarkInterface $image
+        protected WatermarkInterface $watermark,
+        protected User $model
     )
     {
         parent::__construct();
@@ -35,9 +37,9 @@ class WatermarkImagesCommand extends Command
      */
     public function handle()
     {
-        // $this->image()
-        dd('test');
+        $users = $this->model->get();
 
-        return 0;
+        foreach($users as $user)
+            $this->watermark->make($user->image);
     }
 }
